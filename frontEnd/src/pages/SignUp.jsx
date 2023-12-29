@@ -57,6 +57,7 @@ console.log(data)
 <input type = "email" className='border-2 rounded-lg p-2 focus:outline-none' id='email'  placeholder='email'onChange={handelChange}/>
 <input type = "password" className='border-2 rounded-lg p-2 focus:outline-none' id='password'  placeholder='password'onChange={handelChange}/>
 <button className='bg-gray-600 rounded-lg p-3 hover:opacity-95 text-white'>{loading ? "Loading" :"Sign-Up"}</button>
+<Oauth/>
 </form>
 <div className='mt-5'>
   <p>Have an account ? Click on <Link to = {"/signin"} ><span className='text-blue-700'>Sign-In</span> </Link> </p>

@@ -23,7 +23,7 @@ export const Header = () => {
 
             </Link>
 
-            <Link to={"/sign"}>
+            <Link to={"/signin"}>
 
             <li className="hover:cursor-pointer">Sign In</li>
 
