@@ -15,7 +15,17 @@ const DB_URL = process.env.DB_URL;
 
 
 app.use("/api/user", userRoute);
-app.use("/api/auth",authRoute)
+app.use("/api/auth",authRoute);
+
+// app.use((err,req,res,next)=>{
+//     const statusCode = err.statusCode || 500;
+//     const msg = err.message || "Internal server error";
+//     return res.status(statusCode).json({
+//         sucess:false,
+//         statusCode,
+//         msg
+//     })
+// })
 
 app.listen(3000, ()=>{
     console.log("Server is running");
