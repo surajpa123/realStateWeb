@@ -3,10 +3,13 @@ import mongoose from "mongoose";
 import env from "dotenv"
 import userRoute from "./routes/userRoute.js";
 import authRoute from "./routes/authRoute.js"
+import cookieParser from "cookie-parser";
 env.config();
 const app = express();
 
 app.use(express.json())
+
+app.use(cookieParser());
 
 
 const DB_URL = process.env.DB_URL;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link,useNavigate } from "react-router-dom";
+import OAuth from "../components/OAuth"
 
 export const SignUp = () => {
 
@@ -17,7 +18,6 @@ setFormData({...formData,
   const handelSubmit = async (e)=>{
     e.preventDefault();
     try {
-
       setLoading(true)
     const res = await fetch("http://localhost:3000/api/auth/signup", 
     {
