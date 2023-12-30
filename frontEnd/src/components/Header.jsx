@@ -39,7 +39,7 @@ export const Header = () => {
             </Link>
 
             <Link to={"/profile"}>
-  {currentUser ? (<img className="w-10 rounded-full object-cover" src={currentUser.user?.avatar }/>)  : ( <li className="hover:cursor-pointer">Sign In</li>)}
+  {currentUser ? (<img className="w-10 self-center rounded-full object-cover" src={currentUser.user?.avatar }/>)  : ( <li className="hover:cursor-pointer">Sign In</li>)}
             </Link>
 
         </ul>
