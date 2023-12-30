@@ -3,6 +3,7 @@ import { Link,useNavigate } from "react-router-dom";
 import { useDispatch,useSelector } from 'react-redux';
 import { signInStart,signInFail,signInSuccess } from '../redux/user/userSlice';
 import { Oauth } from '../components/Oauth';
+import Cookies from "js-cookie"
 export const SignIn = () => {
 
   const [formData,setFormData]= useState({})
@@ -43,7 +44,9 @@ dispatch(signInStart())
       navigate("/")
       console.log("Sucess")
       setResult(data.sucess)
-      dispatch(signInSuccess(data.vaildUser))  
+      dispatch(signInSuccess(data.vaildUser))
+      Cookies.set("acess_token", data.token)  
+      console.log(data.token)
     }else{
       setResult(data.msg)
       dispatch(signInFail(data.msg))

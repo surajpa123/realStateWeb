@@ -4,6 +4,7 @@ import env from "dotenv"
 import userRoute from "./routes/userRoute.js";
 import authRoute from "./routes/authRoute.js"
 import cookieParser from "cookie-parser";
+import listingRoute from "./routes/listingRoute.js"
 env.config();
 const app = express();
 
@@ -19,6 +20,9 @@ const DB_URL = process.env.DB_URL;
 
 app.use("/api/user", userRoute);
 app.use("/api/auth",authRoute);
+
+app.use("/api/listing",listingRoute);
+
 
 // app.use((err,req,res,next)=>{
 //     const statusCode = err.statusCode || 500;

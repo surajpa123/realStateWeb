@@ -1,5 +1,6 @@
 import bcrypjs from "bcryptjs"
 import User from "../models/userModel.js";
+import Listing from "../models/listingModel.js";
 export const home = async (req,res)=>{
     res.json({msg:"Hey welcome to the website !"})
 }
@@ -34,5 +35,34 @@ export const updateUser = async (req,res)=>{
 
         
     }
+
+}
+
+
+export const getUserListings = async (req,res)=>{
+
+
+try {
+  let listings = await Listing.find({userRef:req.params.id});
+
+  if(listings.length == 0) return res.json({sucess:false,msg:"No listings found"});
+
+  res.status(200).json({sucess:true,listings});
+
+  
+} catch (error) {
+
+  res.json({error})
+  
+}
+
+
+
+
+
+
+
+
+
 
 }

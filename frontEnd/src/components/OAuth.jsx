@@ -36,7 +36,7 @@ export const Oauth = () => {
             })
 
             const data = await res.json();
-            dispatch(signInSuccess(data))
+            dispatch(signInSuccess(data.user))
             navigate("/")
             
 

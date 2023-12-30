@@ -8,6 +8,8 @@ import { Profile } from "./pages/Profile";
 import { Header } from "./components/Header";
 import { SignIn } from "./pages/SignIn";
 import { PrivateRoute } from "./components/PrivateRoute";
+import  CreateListing  from "./pages/CreateListing";
+import { Listing } from "./pages/Listing";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -22,6 +24,8 @@ function App() {
           <Route path="/signOut" element={<SignOut />} />
           <Route element = {<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
+          <Route path="/listing/:listingId" element={<Listing/>} />
+          <Route path="/create-listing" element={<CreateListing/>} />
           </Route>
           <Route path="/signin"  element= {<SignIn/>}/>
         </Routes>

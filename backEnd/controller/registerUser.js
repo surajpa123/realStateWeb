@@ -42,7 +42,8 @@ export const SignIn = async (req,res) =>{
     }
 
     const token = jwt.sign({id:vaildUser._id},process.env.SecretKey);
-    res.cookie('acess_token', token, {httpOnly:true,}).status(200).json({sucess:true,vaildUser}
+    console.log(vaildUser)
+    res.cookie('acess_token', token, {httpOnly:true,}).status(200).json({sucess:true,vaildUser,token:token}
     )
 
 
@@ -63,9 +64,10 @@ export const google = async (req,res)=>{
 
     const user = await User.findOne({email:req.body.email});
 
+    console.log(user)
     if(user){
     const token = jwt.sign({id:user._id},process.env.SecretKey);
-    res.cookie('acess_token', token, {httpOnly:true,}).status(200).json({sucess:true,user})
+    res.cookie('acess_token', token, {httpOnly:true,}).status(200).json({sucess:true,user:user,token:token})
 
     }else{
 
@@ -79,11 +81,7 @@ export const google = async (req,res)=>{
 
      const token = jwt.sign({id:newUser._id},process.env.SecretKey);
 
-     res.cookie('acess_token', token, {httpOnly:true,}).status(200).json({sucess:true,newUser})
-
-
-
-
+     res.cookie('acess_token', token, {httpOnly:true,}).status(200).json({sucess:true,newUser,token:token})
     }
 
 
