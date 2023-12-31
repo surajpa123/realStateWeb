@@ -7,16 +7,15 @@ import { Navigation } from "swiper/modules";
 import "swiper/css/bundle";
 import { FaLocationDot, FaSquareParking } from "react-icons/fa6";
 import { FaBed, FaBath } from "react-icons/fa";
-
 import { MdDinnerDining } from "react-icons/md";
-
-
-
+import { Contact } from "../components/Contact";
 
 export const Listing = () => {
   const [listings, setListings] = useState([]);
 
   const [loading, setLoading] = useState(false);
+
+  const [contact,setContact] = useState(false)
 
   SwiperCore.use([Navigation]);
 
@@ -27,6 +26,14 @@ export const Listing = () => {
   const token = Cookies.get("acess_token");
 
   const [showListingsErrors, setShowListingsErrors] = useState(false);
+
+  const handelToggle = ()=>{
+     if(contact){
+        setContact(false)
+     }else{
+        setContact(true)
+     }
+  }
 
   useEffect(() => {
     const getListings = async () => {
@@ -121,32 +128,44 @@ export const Listing = () => {
 
               <ul className="flex flex-wrap justify-start">
                 <li className="flex gap-2 m-3 items-center">
-                <FaBed/>
-                    {`${listings.bedRooms} beds`}
+                  <FaBed />
+                  {`${listings.bedRooms} beds`}
                 </li>
                 <li className="flex gap-2 m-3 items-center">
-                    <FaBath/>
-                    {`${listings.bathRooms} bathroom`}
-                </li>
-
-                <li className="flex gap-2 m-3 items-center">
-                <FaSquareParking/>
-
-                    {listings.parking == false ? <span> No Parking </span> :  <span>Parking availble</span>}
-
+                  <FaBath />
+                  {`${listings.bathRooms} bathroom`}
                 </li>
 
                 <li className="flex gap-2 m-3 items-center">
+                  <FaSquareParking />
 
-                <MdDinnerDining />
-                    {listings.furnished == false ? <span> Furnished </span> :  <span>Not furnished</span>}
-
+                  {listings.parking == false ? (
+                    <span> No Parking </span>
+                  ) : (
+                    <span>Parking availble</span>
+                  )}
                 </li>
 
-                
+                <li className="flex gap-2 m-3 items-center">
+                  <MdDinnerDining />
+                  {listings.furnished == false ? (
+                    <span> Furnished </span>
+                  ) : (
+                    <span>Not furnished</span>
+                  )}
+                </li>
               </ul>
-
               <p className="sm:font-semibold pt-6">{listings.description}</p>
+              {contact && <Contact listings = {listings}/>}
+
+              <div className='flex justify-center gap-2 flex-wrap max-w-4xl m-auto'>
+
+
+              <button onClick={handelToggle} className="bg-gray-600  sm:w-1/5 rounded-lg p-3 mt-3  hover:opacity-95 text-white text-center">
+                Contact Owner
+              </button>
+
+              </div>
             </div>
           </div>
         </>
