@@ -22,7 +22,7 @@ urlParams.set('searchTerm', searchTerm);
 const searchQuery = urlParams.toString();
 navigate(`/search?${searchQuery}`)
 
-console.log(searchTerm)
+// console.log(searchTerm)
   }
 
   useEffect(()=>{

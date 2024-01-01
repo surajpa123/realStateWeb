@@ -44,7 +44,6 @@ export const Listing = () => {
           {
             method: "GET",
             headers: {
-              Authorization: "Bearer" + token,
               "Content-Type": "application/json",
             },
           }
@@ -67,6 +66,7 @@ export const Listing = () => {
     };
 
     getListings();
+    
   }, [params]);
 
   console.log(listings);

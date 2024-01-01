@@ -10,6 +10,7 @@ import { SignIn } from "./pages/SignIn";
 import { PrivateRoute } from "./components/PrivateRoute";
 import  CreateListing  from "./pages/CreateListing";
 import { Listing } from "./pages/Listing";
+import { Search } from "./pages/Search";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/create-listing" element={<CreateListing/>} />
           </Route>
           <Route path="/signin"  element= {<SignIn/>}/>
+          <Route path="/search" element = {<Search/>}></Route>
         </Routes>
       </BrowserRouter>
     </>

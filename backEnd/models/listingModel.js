@@ -33,6 +33,10 @@ const listingSchema = new mongoose.Schema({
     furnished:{
         type:Boolean,
     },
+    offer:{
+        type:Boolean,
+        default:false
+    },
     parking:{
         type:Boolean,
     },
