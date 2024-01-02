@@ -5,7 +5,7 @@ import SwiperCore from "swiper";
 import { Navigation } from "swiper/modules";
 import "swiper/css/bundle";
 import { list } from 'firebase/storage';
-import { ListingItems } from '../components/ListingItems';
+import {ListingItems} from '../components/ListingItems';
 import { FaHeart } from "react-icons/fa";
 
 
@@ -176,7 +176,7 @@ useEffect(()=>{
 
       {/* {cards} */}
 
-  <div className='max-w-8xl mx-auto p-3 flex flex-col gap-8 my-10'>
+  {/* <div className='max-w-8xl mx-auto p-3 flex flex-col gap-8 my-10'>
 
 {offer && offer.length > 0 && (
 
@@ -216,9 +216,63 @@ useEffect(()=>{
 
 )}
 
-      </div>
+      </div> */}
+
+<div className='lg:max-w-7xl max-w-2xl mx-auto p-3 flex flex-col gap-8 my-10 md:max-w-1xl'>
+
+      {offer && offer.length > 0 && (
+          <div className=''>
+            <div className='my-3'>
+              <h2 className='text-2xl font-semibold text-slate-600'>Recent offers</h2>
+              <Link className='text-sm text-blue-800 hover:underline' to={'/search?offer=true'}>Show more offers</Link>
+            </div>
+            <div className='flex flex-wrap gap-4'>
+              {offer.map((listing) => (
+                <ListingItems listing={listing} key={listing._id} />
+              ))}
+            </div>
+          </div>
+        )}
 
 
+{/* {rent && rent.length > 0 && (
+          <div className=''>
+            <div className='my-3'>
+              <h2 className='text-2xl font-semibold text-slate-600'>Recent Rent</h2>
+              <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=rent'}>Show more Rent</Link>
+            </div>
+            <div className='flex flex-wrap gap-4'>
+              {rent.map((listing) => (
+                <ListingItems listing={listing} key={listing._id} />
+              ))}
+            </div>
+          </div>
+        )} */}
+
+
+
+        
+{sale && sale.length > 0 && (
+          <div className=''>
+            <div className='my-3'>
+              <h2 className='text-2xl font-semibold text-slate-600'>Recent Sale</h2>
+              <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=sale'}>Show more Sale</Link>
+            </div>
+            <div className='flex flex-wrap gap-4'>
+              {sale.map((listing) => (
+                <ListingItems listing={listing} key={listing._id} />
+              ))}
+            </div>
+          </div>
+        )}
+
+
+
+
+
+
+
+</div>
 
 {/* 
       <div className='max-w-8xl mx-auto lg:p-8 justify-center flex flex-col gap-8 my-10'>
@@ -258,7 +312,7 @@ useEffect(()=>{
       </div> */}
 
 
-
+{/* 
       
       <div  className='max-w-8xl mx-auto p-3 flex flex-col gap-8 my-10'>
 
@@ -294,7 +348,7 @@ useEffect(()=>{
 
 )}
 
-      </div>
+      </div> */}
 
 
 <div className='flex items-center gap-2 p-6 max-w-2xl justify-center mx-auto'>

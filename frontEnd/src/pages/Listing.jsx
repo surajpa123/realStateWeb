@@ -107,7 +107,7 @@ export const Listing = () => {
 
               <h2 className="flex items-center gap-2">
                 {" "}
-                <FaLocationDot /> {listings.address}
+                <FaLocationDot className="text-green-700" /> {listings.address}
               </h2>
 
               <p>
@@ -128,16 +128,16 @@ export const Listing = () => {
 
               <ul className="flex flex-wrap justify-start">
                 <li className="flex gap-2 m-3 items-center">
-                  <FaBed />
+                  <FaBed className="text-orange-700" />
                   {`${listings.bedRooms} beds`}
                 </li>
                 <li className="flex gap-2 m-3 items-center">
-                  <FaBath />
+                  <FaBath className="text-orange-700"  />
                   {`${listings.bathRooms} bathroom`}
                 </li>
 
                 <li className="flex gap-2 m-3 items-center">
-                  <FaSquareParking />
+                  <FaSquareParking className="text-orange-700"  />
 
                   {listings.parking == false ? (
                     <span> No Parking </span>
@@ -147,7 +147,7 @@ export const Listing = () => {
                 </li>
 
                 <li className="flex gap-2 m-3 items-center">
-                  <MdDinnerDining />
+                  <MdDinnerDining className="text-orange-700"  />
                   {listings.furnished == false ? (
                     <span> Furnished </span>
                   ) : (

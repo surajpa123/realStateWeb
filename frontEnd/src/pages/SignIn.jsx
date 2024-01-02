@@ -11,6 +11,8 @@ export const SignIn = () => {
   // const [loading,setLoading] = useState(false)
   const {loading, error} = useSelector((state)=> state.user)
 
+  
+
 
   const navigate = useNavigate()
 
@@ -23,9 +25,10 @@ setFormData({...formData,
 
   const handelSubmit = async (e)=>{
     e.preventDefault();
+    dispatch(signInStart());
+
     try {
 
-      // setLoading(true)
     const res = await fetch("https://realestate-wsd6.onrender.com/api/auth/signin", 
     {
       method:"POST",
@@ -39,7 +42,8 @@ setFormData({...formData,
 
 const data = await res.json()
 console.log(data)
-dispatch(signInStart())
+
+console.log(loading,'hey')
     if(data.sucess == true){
       navigate("/")
       console.log("Sucess")
@@ -47,6 +51,7 @@ dispatch(signInStart())
       dispatch(signInSuccess(data.vaildUser))
       Cookies.set("acess_token", data.token)  
       console.log(data.token)
+      
     }else{
       setResult(data.msg)
       dispatch(signInFail(data.msg))
