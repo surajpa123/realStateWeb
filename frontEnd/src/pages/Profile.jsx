@@ -88,7 +88,7 @@ console.log(file)
 
     try {
 dispatch(updateUserStart());
-const res = await fetch(`http://localhost:3000/api/user/update/${currentUser._id}`, 
+const res = await fetch(`https://realestate-wsd6.onrender.com/api/user/update/${currentUser._id}`, 
 {
   method:"POST",
   headers :{
@@ -120,7 +120,7 @@ alert("Profile Updated Successfully")
 
     try {
       
-const res = await fetch(`http://localhost:3000/api/user/listings/${currentUser._id}`, 
+const res = await fetch(`https://realestate-wsd6.onrender.com/api/user/listings/${currentUser._id}`, 
 {
   method:"GET",
   headers :{

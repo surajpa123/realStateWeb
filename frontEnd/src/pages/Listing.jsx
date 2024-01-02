@@ -40,7 +40,7 @@ export const Listing = () => {
       setLoading(true);
       try {
         const res = await fetch(
-          `http://localhost:3000/api/listing/get/${params.listingId}`,
+          `https://realestate-wsd6.onrender.com/api/listing/get/${params.listingId}`,
           {
             method: "GET",
             headers: {
@@ -66,7 +66,7 @@ export const Listing = () => {
     };
 
     getListings();
-    
+
   }, [params]);
 
   console.log(listings);

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link,useNavigate } from "react-router-dom";
 import { useDispatch,useSelector } from 'react-redux';
 import { signInStart,signInFail,signInSuccess } from '../redux/user/userSlice';
-import { Oauth } from '../components/Oauth';
+import { Oauth } from '../components/OAuth.jsx';
 import Cookies from "js-cookie"
 export const SignIn = () => {
 
@@ -26,7 +26,7 @@ setFormData({...formData,
     try {
 
       // setLoading(true)
-    const res = await fetch("http://localhost:3000/api/auth/signin", 
+    const res = await fetch("https://realestate-wsd6.onrender.com/api/auth/signin", 
     {
       method:"POST",
       headers :{

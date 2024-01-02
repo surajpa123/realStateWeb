@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link,useNavigate } from "react-router-dom";
-import { Oauth } from '../components/Oauth';
+import { Oauth } from '../components/OAuth.jsx';
 
 export const SignUp = () => {
 
@@ -19,7 +19,7 @@ setFormData({...formData,
     e.preventDefault();
     try {
       setLoading(true)
-    const res = await fetch("http://localhost:3000/api/auth/signup", 
+    const res = await fetch("https://realestate-wsd6.onrender.com/api/auth/signup", 
     {
       method:"POST",
       headers :{

@@ -22,7 +22,7 @@ export const Oauth = () => {
 
             console.log(result)
             
-            const res = await fetch("http://localhost:3000/api/auth/google",{
+            const res = await fetch("https://realestate-wsd6.onrender.com/api/auth/google",{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"

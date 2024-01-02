@@ -100,7 +100,7 @@ console.log(loading)
     console.log(searchQuery)
     try {
       const res = await fetch(
-        `http://localhost:3000/api/listing/get?${searchQuery}`,
+        `https://realestate-wsd6.onrender.com/api/listing/get?${searchQuery}`,
         {
           method: "GET",
           
