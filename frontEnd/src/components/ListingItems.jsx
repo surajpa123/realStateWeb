@@ -11,7 +11,7 @@ export const ListingItems = ({listing}) => {
   return (
     <div className='p-1 shadow-xl hover:shadow-lg borde w-[320px] rounded-lg sm:w[300px] hover:scale-105 trasition-scale duration-300 m-2 justify-center'> 
         <Link to={`/listing/${listing._id}`}>
-          <img className='h-[200px] sm:[200px] w-full object-cover hover:scale-105 trasition-scale duration-300' src={listing.imageUrls[0]} alt="listings_cover" />  
+          <img className='h-[200px] sm:[200px] w-full object-cover hover:scale-105 trasition-scale duration-300' src={!listing.imageUrls[0] ? "Loading" : listing.imageUrls[0] } alt="listings_cover" />  
           <div className='p-3'>
         <h3 className='truncate font-semibold text-slate-700'>{listing.name}</h3>
 
