@@ -26,7 +26,7 @@ useEffect(()=>{
     console.log("Hey")
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:3000/api/listing/get?offer=true&limit=4");
+      const res = await fetch("https://realestate-wsd6.onrender.com/api/get?offer=true&limit=4");
       const data = await res.json();
       console.log(data)
       setOfferListings(data)
