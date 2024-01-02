@@ -18,7 +18,7 @@ app.use(
 
   app.use(cors({ origin: 'http://localhost:5173' }));
 
-  app.use(cors({ origin: 'https://real-state-hs82umfkn-pathaksuraj136-gmailcom.vercel.app' }));
+  app.use(cors({ origin: 'https://real-state-web-phi.vercel.app' }));
 
 
 app.use(express.json())
