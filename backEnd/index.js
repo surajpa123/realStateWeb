@@ -5,8 +5,15 @@ import userRoute from "./routes/userRoute.js";
 import authRoute from "./routes/authRoute.js"
 import cookieParser from "cookie-parser";
 import listingRoute from "./routes/listingRoute.js"
+import cors from "cors"
 env.config();
 const app = express();
+
+app.use(
+    cors({
+      allowedHeaders: ["Content-type", "Authorization"],
+    })
+  );
 
 app.use(express.json())
 
