@@ -43,11 +43,11 @@ if(searchTermFromURL){
 console.log(searchTerm)
   return (
     <header className="bg-slate-200">
-      <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
+      <div className="flex justify-between items-center max-w-7xl mx-auto p-3">
         <Link to={"/"}>
         <h1 className="font-bold text-sm sm:text-3xl flex flex-wrap">
-          <span className="text-slate-400">Real</span>
-          <span className="text-slate-800">Estate</span>
+          <span className="text-slate-400 hover:text-slate-700 transition-colors duration-300">Real</span>
+          <span className="text-slate-800 hover:text-orange-500 transition-colors duration-300">Estate</span>
         </h1>
 
         </Link>
@@ -60,7 +60,7 @@ console.log(searchTerm)
         </form>
 
 
-        <ul className="flex gap-7 mt-2">
+        <ul className="flex gap-7  items-center">
             <Link to={'/'}>
             <li className="hidden sm:inline hover:cursor-pointer">Home</li>
 
@@ -70,9 +70,12 @@ console.log(searchTerm)
 
             </Link>
 
+
+
             <Link to={"/profile"}>
   {currentUser ? (<img className="w-10 self-center rounded-full object-cover" src={currentUser?.avatar}/>)  : ( <li className="hover:cursor-pointer">Sign In</li>)}
             </Link>
+
 
         </ul>
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ListingItems } from '../components/ListingItems';
 
 export const Search = () => {
 
@@ -110,7 +111,11 @@ console.log(loading)
       );
 
       const data = await res.json();
-      console.log(data,'hey sea')
+      console.log(data,'');
+      if(data){
+        setListings(data)
+        setLoading(false)
+      }
 
     //   if (data.sucess == true) {
     //     setShowListingsErrors(false);
@@ -136,16 +141,16 @@ console.log(loading)
   return (
 
 
-    <div className=' flex flex-col md:flex-row m-auto  border border-blue-500'> 
+    <div className='flex flex-col md:flex-row m-auto gap-4'> 
         
-        <div className='p-7 border-r-2 border border-red-500'>
+        <div className='p-6 border-r-2 sm:w-[60%]'>
 
             <form onSubmit={handelSubmit}>
-                <div className='flex items-center gap-2'>
+                <div className='flex items-center gap-2 '>
                     <label className='whitespace-nowrap' >Search Term:</label>
                     <input onChange={handelChange}  className='border rounded-lg p-3 w-full' type="text" placeholder="Search..." name="search" id="searchTerm"/>
                 </div>
-                <div className='flex gap-2 items-center flex-wrap p-7'>
+                <div className='flex gap-2 items-center flex-wrap p-7 '>
                     <label>Type:</label>
                     <div className='flex gap-2'>
                     <input onChange={handelChange} checked={ formData.type == "all"} className='w-5' type="checkbox" id='all' />
@@ -197,7 +202,7 @@ console.log(loading)
                         </select>
                     </div>
 
-<button className='bg-slate-700 p-3 rounded-lg  text-white'>Search</button>
+                 <button className='bg-slate-700 p-3 rounded-lg  text-white'>Search</button>
                   
                 </div>
 
@@ -205,9 +210,27 @@ console.log(loading)
             </form>
 
         </div>
-        <div className='border border-red-500'>
-           <h1 className='text-2xl font-semibold mt-3 text-slate-700'>Property Result :</h1> 
+        <div className=' p-3'>
+           <h1 className='ml-14 text-2xl font-semibold mt-3 text-slate-700'>Property Result :</h1> 
 
+<div className='flex flex-wrap justify-center'>
+    {!loading && listing.length == 0 && (
+        <p className='text-lg text-center text-slate-700 mt-5'>No Property Found!</p>
+    )}
+
+    {
+        loading && (
+            <p className='text-lg text-slate-700 text-center'>Loading...</p>
+        )
+    }
+
+    {
+        !loading && listing && listing.map((listing)=>(
+            <ListingItems key={listing._id} listing={listing} />
+        ))
+    }
+
+</div>
 
         </div>
 
