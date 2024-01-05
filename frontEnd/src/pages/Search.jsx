@@ -21,6 +21,7 @@ const [formData, setFormData]= useState({
     const handelChange = (e)=>{
 
     if(e.target.id == "searchTerm"){
+        
         setFormData({...formData,searchTerm:e.target.value})
     }           
 

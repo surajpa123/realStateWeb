@@ -36,6 +36,10 @@ app.use("/api/auth",authRoute);
 
 app.use("/api/listing",listingRoute);
 
+app.get("/", (req,res)=>{
+  res.json({msg:"Hello, Welcome to Real state web app"})
+})
+
 
 // app.use((err,req,res,next)=>{
 //     const statusCode = err.statusCode || 500;
