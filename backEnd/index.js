@@ -49,9 +49,7 @@ app.get("/", (req,res)=>{
 //         statusCode,
 //         msg
 //     })
-// })
 
-//hey
 
 app.listen(3000, ()=>{
     console.log("Server is running");
