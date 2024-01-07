@@ -20,8 +20,6 @@ app.use(
 
   app.use(cors({ origin: 'https://real-state-web-phi.vercel.app' }));
 
-  app.use(cors({origin : 'https://real-state-web-7433.vercel.app'}));
-
   app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'https://real-state-web-phi.vercel.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
