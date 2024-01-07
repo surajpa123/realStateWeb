@@ -5,7 +5,9 @@
      { "src": "backEnd/index.js", "use": "@vercel/node" }
    ],
    "routes": [
-     { "src": "/(.*)", "dest": "backEnd/index.js" }
+     { "src": "/(.*)", "dest": "backEnd/index.js", "headers": {
+      "Access-Control-Allow-Origin": "https://real-state-web-phi.vercel.app"
+    } }
    ]
  }
  

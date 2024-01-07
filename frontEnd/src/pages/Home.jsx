@@ -26,9 +26,12 @@ export const Home = () => {
       console.log("Hey");
       setLoading(true);
       try {
-        const res = await fetch(
-          `${API}/api/listing/get?offer=true&limit=4`
-        );
+        const res = await fetch(`${API}/api/listing/get?offer=true&limit=4`,{
+           method:"GET",
+           credentials:"include"
+          }
+  
+          );
         const data = await res.json();
         console.log(data);
         setOfferListings(data);
