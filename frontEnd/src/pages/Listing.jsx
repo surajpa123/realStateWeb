@@ -9,6 +9,7 @@ import { FaLocationDot, FaSquareParking } from "react-icons/fa6";
 import { FaBed, FaBath } from "react-icons/fa";
 import { MdDinnerDining } from "react-icons/md";
 import { Contact } from "../components/Contact";
+import { Loader } from "../components/Loader";
 
 export const Listing = () => {
   const [listings, setListings] = useState([]);
@@ -75,7 +76,7 @@ export const Listing = () => {
 
   return (
     <div>
-      {loading && <p className="text-center mt-5 text-2xl">Loading ...</p>}
+      {loading && <Loader/>}
       {showListingsErrors && (
         <p className="text-center mt-5 text-2xl">Error Occured</p>
       )}

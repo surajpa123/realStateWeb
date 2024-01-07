@@ -7,6 +7,7 @@ import "swiper/css/bundle";
 import { list } from "firebase/storage";
 import { ListingItems } from "../components/ListingItems";
 import { FaHeart } from "react-icons/fa";
+import { Loader } from "../components/Loader";
 
 export const Home = () => {
   const [offer, setOfferListings] = useState([]);
@@ -149,7 +150,11 @@ export const Home = () => {
       {/* {slider} */}
 
 
-      { loading ? <> <h1 className="text-center font-bold text-slate-800">Loading ...</h1> </> :    
+      { loading ? <> 
+      
+      <Loader/>
+      
+       </> :    
  
 
       <div className="mx-auto max-w-8xl">
