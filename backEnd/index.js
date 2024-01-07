@@ -22,6 +22,14 @@ app.use(
 
   app.use(cors({origin : 'https://real-state-web-7433.vercel.app'}));
 
+  app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://real-state-web-phi.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+  });
+
 
 app.use(express.json())
 
