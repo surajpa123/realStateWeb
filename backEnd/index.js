@@ -18,16 +18,11 @@ app.use(
 
   app.use(cors({ origin: 'http://localhost:5173' }));
 
-  app.use(cors({ origin: 'https://real-state-web-phi.vercel.app' }));
-
-  app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://real-state-web-phi.vercel.app');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    next();
-  });
-
+  app.use(cors({
+    origin: 'https://real-state-web-phi.vercel.app',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  }));
 
 app.use(express.json())
 
