@@ -11,6 +11,9 @@ export const SignIn = () => {
   // const [loading,setLoading] = useState(false)
   const {loading, error} = useSelector((state)=> state.user)
 
+  const API = import.meta.env.VITE_API_URL;
+
+
   
 
 
@@ -29,7 +32,7 @@ setFormData({...formData,
 
     try {
 
-    const res = await fetch("https://realestate-wsd6.onrender.com/api/auth/signin", 
+    const res = await fetch(`${API}/api/auth/signin`, 
     {
       method:"POST",
       headers :{

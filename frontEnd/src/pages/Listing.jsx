@@ -17,6 +17,8 @@ export const Listing = () => {
 
   const [contact,setContact] = useState(false)
 
+  const API = import.meta.env.VITE_API_URL;
+
   SwiperCore.use([Navigation]);
 
   const params = useParams();
@@ -40,7 +42,7 @@ export const Listing = () => {
       setLoading(true);
       try {
         const res = await fetch(
-          `https://realestate-wsd6.onrender.com/api/listing/get/${params.listingId}`,
+          `${API}/api/listing/get/${params.listingId}`,
           {
             method: "GET",
             headers: {

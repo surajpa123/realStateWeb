@@ -7,6 +7,9 @@ export const Search = () => {
 const [listing,setListings] = useState([]);
 const [loading, setLoading] = useState(false);
 
+const API = import.meta.env.VITE_API_URL;
+
+
 const navigate = useNavigate();
 const [formData, setFormData]= useState({
         searchTerm :'',
@@ -101,7 +104,7 @@ console.log(loading)
     console.log(searchQuery)
     try {
       const res = await fetch(
-        `https://realestate-wsd6.onrender.com/api/listing/get?${searchQuery}`,
+        `${API}/api/listing/get?${searchQuery}`,
         {
           method: "GET",
           

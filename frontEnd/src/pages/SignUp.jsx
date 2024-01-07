@@ -8,6 +8,9 @@ export const SignUp = () => {
   const [result,setResult] = useState("")
   const [loading,setLoading] = useState(false)
 
+  const API = import.meta.env.VITE_API_URL;
+
+
   const navigate = useNavigate()
 const handelChange = (e)=>{
 setFormData({...formData,
@@ -19,7 +22,7 @@ setFormData({...formData,
     e.preventDefault();
     try {
       setLoading(true)
-    const res = await fetch("https://realestate-wsd6.onrender.com/api/auth/signup", 
+    const res = await fetch(`${API}/api/auth/signup`, 
     {
       method:"POST",
       headers :{

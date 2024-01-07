@@ -11,6 +11,9 @@ export const Oauth = () => {
     const navigate  =  useNavigate()
 
 
+    const API = import.meta.env.VITE_API_URL;
+
+
     const handelGoogleClick = async ()=>{
 
         try {
@@ -22,7 +25,7 @@ export const Oauth = () => {
 
             console.log(result)
             
-            const res = await fetch("https://realestate-wsd6.onrender.com/api/auth/google",{
+            const res = await fetch(`${API}/api/auth/google`,{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"

@@ -22,6 +22,8 @@ export const Profile = () => {
 
   const navigate = useNavigate()
 
+  const API = import.meta.env.VITE_API_URL;
+
   const token = Cookies.get("acess_token");
 
   console.log(token)
@@ -120,7 +122,7 @@ alert("Profile Updated Successfully")
 
     try {
       
-const res = await fetch(`https://realestate-wsd6.onrender.com/api/user/listings/${currentUser._id}`, 
+const res = await fetch(`${API}/api/user/listings/${currentUser._id}`, 
 {
   method:"GET",
   headers :{

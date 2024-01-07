@@ -15,6 +15,10 @@ export const Home = () => {
 
   const [loading, setLoading] = useState(false);
   SwiperCore.use([Navigation]);
+  
+  const API = import.meta.env.VITE_API_URL;
+
+  console.log(API,'hey')
 
   useEffect(() => {
     const fetchOfferListings = async () => {
@@ -22,7 +26,7 @@ export const Home = () => {
       setLoading(true);
       try {
         const res = await fetch(
-          "https://real-state-web-7433.vercel.app/api/listing/get?offer=true&limit=4"
+          `${API}/api/listing/get?offer=true&limit=4`
         );
         const data = await res.json();
         console.log(data);
@@ -38,7 +42,7 @@ export const Home = () => {
       setLoading(true);
       try {
         const res = await fetch(
-          "https://real-state-web-7433.vercel.app/api/listing/get?type=rent&limit=4"
+          `${API}/api/listing/get?type=rent&limit=4`
         );
         const data = await res.json();
         console.log(data);
@@ -54,7 +58,7 @@ export const Home = () => {
       setLoading(true);
       try {
         const res = await fetch(
-          "https://real-state-web-7433.vercel.app/api/listing/get?type=sale&limit=4"
+          `${API}/api/listing/get?type=sale&limit=4`
         );
         const data = await res.json();
         console.log(data);
