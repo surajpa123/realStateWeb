@@ -18,11 +18,11 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(
-    cors({
-      allowedHeaders: ["Content-type", "Authorization"],
-    })
-  );
+// app.use(
+//     cors({
+//       allowedHeaders: ["Content-type", "Authorization"],
+//     })
+//   );
 
 
 
