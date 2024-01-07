@@ -32,6 +32,7 @@ export const Home = () => {
         console.log(data);
         setOfferListings(data);
         fetchRentListings();
+        setLoading(false)
       } catch (error) {
         console.log(error);
       }
@@ -39,7 +40,6 @@ export const Home = () => {
 
     const fetchRentListings = async () => {
       console.log("Hey");
-      setLoading(true);
       try {
         const res = await fetch(
           `${API}/api/listing/get?type=rent&limit=4`
@@ -55,7 +55,6 @@ export const Home = () => {
 
     const fetchSaleListings = async () => {
       console.log("Hey");
-      setLoading(true);
       try {
         const res = await fetch(
           `${API}/api/listing/get?type=sale&limit=4`
@@ -116,10 +115,15 @@ export const Home = () => {
   //   }
 
   // },[])
-  console.log(offer, "o");
-  console.log(rent, "r");
+  // console.log(offer, "o");
+  // console.log(rent, "r");
+
+
+ 
 
   return (
+
+    
     <div>
       {/* {top section} */}
 
@@ -144,6 +148,10 @@ export const Home = () => {
 
       {/* {slider} */}
 
+
+      { loading ? <> <h1 className="text-center font-bold text-slate-800">Loading ...</h1> </> :    
+ 
+
       <div className="mx-auto max-w-8xl">
         <Swiper navigation>
           {offer &&
@@ -160,6 +168,8 @@ export const Home = () => {
             ))}
         </Swiper>
       </div>
+
+                }
 
       {/* {cards} */}
 
@@ -204,6 +214,9 @@ export const Home = () => {
 )}
 
       </div> */}
+
+
+      
 
       <div className="lg:max-w-7xl max-w-2xl mx-auto p-3 flex flex-col gap-8 my-10 md:max-w-1xl">
         {offer && offer.length > 0 && (
@@ -345,5 +358,9 @@ export const Home = () => {
         <FaHeart className="text-red-700 text-2xl" />
       </div>
     </div>
+
+  
   );
+
+   
 };
