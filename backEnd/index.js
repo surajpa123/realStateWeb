@@ -20,6 +20,8 @@ app.use(
 
   app.use(cors({ origin: 'https://real-state-web-phi.vercel.app' }));
 
+  app.use(cors({origin : 'https://real-state-web-7433.vercel.app'}));
+
 
 app.use(express.json())
 

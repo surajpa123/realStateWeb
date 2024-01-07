@@ -22,7 +22,7 @@ export const Home = () => {
       setLoading(true);
       try {
         const res = await fetch(
-          "https://realestate-wsd6.onrender.com/api/listing/get?offer=true&limit=4"
+          "https://real-state-web-7433.vercel.app/api/listing/get?offer=true&limit=4"
         );
         const data = await res.json();
         console.log(data);
@@ -38,7 +38,7 @@ export const Home = () => {
       setLoading(true);
       try {
         const res = await fetch(
-          "https://realestate-wsd6.onrender.com/api/listing/get?type=rent&limit=4"
+          "https://real-state-web-7433.vercel.app/api/listing/get?type=rent&limit=4"
         );
         const data = await res.json();
         console.log(data);
@@ -54,7 +54,7 @@ export const Home = () => {
       setLoading(true);
       try {
         const res = await fetch(
-          "https://realestate-wsd6.onrender.com/api/listing/get?type=sale&limit=4"
+          "https://real-state-web-7433.vercel.app/api/listing/get?type=sale&limit=4"
         );
         const data = await res.json();
         console.log(data);
