@@ -28,7 +28,9 @@ export const Home = () => {
       try {
         const res = await fetch(`${API}/api/listing/get?offer=true&limit=4`,{
            method:"GET",
-           credentials:"include"
+           credentials:"include",
+           mode: 'no-cors',
+
           }
   
           );
@@ -46,7 +48,9 @@ export const Home = () => {
       console.log("Hey");
       try {
         const res = await fetch(
-          `${API}/api/listing/get?type=rent&limit=4`
+          `${API}/api/listing/get?type=rent&limit=4`,{
+            mode: 'no-cors',
+          }
         );
         const data = await res.json();
         console.log(data);
@@ -61,7 +65,9 @@ export const Home = () => {
       console.log("Hey");
       try {
         const res = await fetch(
-          `${API}/api/listing/get?type=sale&limit=4`
+          `${API}/api/listing/get?type=sale&limit=4`,{
+            mode: 'no-cors',
+          }
         );
         const data = await res.json();
         console.log(data);
