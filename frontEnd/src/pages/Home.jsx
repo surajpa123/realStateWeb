@@ -26,12 +26,7 @@ export const Home = () => {
       console.log("Hey");
       setLoading(true);
       try {
-        const res = await fetch(`${API}/api/listing/get?offer=true&limit=4`,{
-           method:"GET",
-           credentials:"include",
-           mode: 'no-cors',
-
-          }
+        const res = await fetch(`${API}/api/listing/get?offer=true&limit=4`
   
           );
         const data = await res.json();
@@ -48,9 +43,7 @@ export const Home = () => {
       console.log("Hey");
       try {
         const res = await fetch(
-          `${API}/api/listing/get?type=rent&limit=4`,{
-            mode: 'no-cors',
-          }
+          `${API}/api/listing/get?type=rent&limit=4`
         );
         const data = await res.json();
         console.log(data);
@@ -65,9 +58,7 @@ export const Home = () => {
       console.log("Hey");
       try {
         const res = await fetch(
-          `${API}/api/listing/get?type=sale&limit=4`,{
-            mode: 'no-cors',
-          }
+          `${API}/api/listing/get?type=sale&limit=4`
         );
         const data = await res.json();
         console.log(data);

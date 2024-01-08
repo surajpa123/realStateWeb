@@ -5,9 +5,12 @@
      { "src": "backEnd/index.js", "use": "@vercel/node" }
    ],
    "routes": [
-     { "src": "/(.*)", "dest": "backEnd/index.js", "headers": {
-      "Access-Control-Allow-Origin": "https://real-state-web-phi.vercel.app"
-    } }
+     { "src": "/(.*)", "dest": "backEnd/index.js", "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+     "headers": {
+       "Access-Control-Allow-Origin": "*"
+     }
+    
+    }
    ]
  }
  

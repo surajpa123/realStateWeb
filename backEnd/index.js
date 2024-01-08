@@ -26,9 +26,12 @@ app.use((req, res, next) => {
 
 
 
+app.use(cors({origin:"https://realestate-wsd6.onrender.com"}))
+
+app.use(cors({ origin: 'https://real-state-web-phi.vercel.app' }));
 
 
-  // app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: 'http://localhost:5173' }));
 
   // app.use(cors({
   //   origin: 'https://real-state-web-phi.vercel.app',
