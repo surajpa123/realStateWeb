@@ -16,24 +16,22 @@ export const Home = () => {
 
   const [loading, setLoading] = useState(false);
   SwiperCore.use([Navigation]);
-  
+
   const API = import.meta.env.VITE_API_URL;
 
-  console.log(API,'hey')
+  // console.log(API,'hey')
 
   useEffect(() => {
     const fetchOfferListings = async () => {
-      console.log("Hey");
+      // console.log("Hey");
       setLoading(true);
       try {
-        const res = await fetch(`${API}/api/listing/get?offer=true&limit=4`
-  
-          );
+        const res = await fetch(`${API}/api/listing/get?offer=true&limit=4`);
         const data = await res.json();
         console.log(data);
         setOfferListings(data);
         fetchRentListings();
-        setLoading(false)
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -42,11 +40,9 @@ export const Home = () => {
     const fetchRentListings = async () => {
       console.log("Hey");
       try {
-        const res = await fetch(
-          `${API}/api/listing/get?type=rent&limit=4`
-        );
+        const res = await fetch(`${API}/api/listing/get?type=rent&limit=4`);
         const data = await res.json();
-        console.log(data);
+        // console.log(data);
         setRentListings(data);
         fetchSaleListings();
       } catch (error) {
@@ -55,11 +51,9 @@ export const Home = () => {
     };
 
     const fetchSaleListings = async () => {
-      console.log("Hey");
+      // console.log("Hey");
       try {
-        const res = await fetch(
-          `${API}/api/listing/get?type=sale&limit=4`
-        );
+        const res = await fetch(`${API}/api/listing/get?type=sale&limit=4`);
         const data = await res.json();
         console.log(data);
         setSaleListings(data);
@@ -119,12 +113,7 @@ export const Home = () => {
   // console.log(offer, "o");
   // console.log(rent, "r");
 
-
- 
-
   return (
-
-    
     <div>
       {/* {top section} */}
 
@@ -149,32 +138,28 @@ export const Home = () => {
 
       {/* {slider} */}
 
-
-      { loading ? <> 
-      
-      <Loader/>
-      
-       </> :    
- 
-
-      <div className="mx-auto max-w-8xl">
-        <Swiper navigation>
-          {offer &&
-            offer.map((list) => (
-              <SwiperSlide key={list._id}>
-                <div
-                  className="h-[500px]"
-                  style={{
-                    background: `url(${list.imageUrls[0]}) center no-repeat`,
-                    backgroundSize: "cover",
-                  }}
-                ></div>
-              </SwiperSlide>
-            ))}
-        </Swiper>
-      </div>
-
-                }
+      {loading ? (
+        <>
+          <Loader />
+        </>
+      ) : (
+        <div className="mx-auto max-w-8xl">
+          <Swiper navigation>
+            {offer &&
+              offer.map((list) => (
+                <SwiperSlide key={list._id}>
+                  <div
+                    className="h-[500px]"
+                    style={{
+                      background: `url(${list.imageUrls[0]}) center no-repeat`,
+                      backgroundSize: "cover",
+                    }}
+                  ></div>
+                </SwiperSlide>
+              ))}
+          </Swiper>
+        </div>
+      )}
 
       {/* {cards} */}
 
@@ -219,9 +204,6 @@ export const Home = () => {
 )}
 
       </div> */}
-
-
-      
 
       <div className="lg:max-w-7xl max-w-2xl mx-auto p-3 flex flex-col gap-8 my-10 md:max-w-1xl">
         {offer && offer.length > 0 && (
@@ -363,9 +345,5 @@ export const Home = () => {
         <FaHeart className="text-red-700 text-2xl" />
       </div>
     </div>
-
-  
   );
-
-   
 };
